@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- title starts -->
+    <section class="p-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-md-8">
+            <h3 class="text-primary">{{ todo.title }}</h3>
+          </div>
+          <div class="col-lg-2 col-md-4">
+            <a href="" class="btn btn-outline-dark"> Edit </a>
+            <a href="{% url 'delete' todo.id%}" class="btn btn-danger"> Delete </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- title ends -->
+
+    <!-- desc starts -->
+    <section class="px-5">
+      <div class="container">
+        <p class="lead">{{ todo.description }}</p>
+      </div>
+    </section>
+    <!-- desc ends -->
+{% endblock %}
+ 

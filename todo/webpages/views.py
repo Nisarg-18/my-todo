@@ -24,3 +24,10 @@ def delete(request, id):
     todo=Todo.objects.get(id=id)
     todo.delete()
     return redirect('home')
+
+def read(request,id):
+    todo=Todo.objects.get(id=id)
+    data={
+        'todo':todo,
+    } 
+    return render(request, 'webpages/todoDetails.html',data)
