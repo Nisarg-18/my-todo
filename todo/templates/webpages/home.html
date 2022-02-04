@@ -21,7 +21,7 @@
     <section class="px-5">
       <div class="container">
         <div class="row g-4">
-          {% for t in todo reversed %}
+          {% for t in todo %}
           <div class="col-lg-3 col-md-6">
             <a href="{% url 'read' t.id %}" class="text-decoration-none text-dark">
               <div class="card">
@@ -30,7 +30,7 @@
                 <p class="card-text">
                   {{ t.description | safe }}
                 </p>
-                <a href="#" class="btn btn-outline-dark">Edit</a>
+                <a href="{% url 'edit' t.id %}" class="btn btn-outline-dark">Edit</a>
                 <a href="{% url 'delete' t.id %}" class="btn btn-danger">Delete</a>
               </div>
             </div>

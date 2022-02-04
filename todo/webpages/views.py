@@ -31,3 +31,15 @@ def read(request,id):
         'todo':todo,
     } 
     return render(request, 'webpages/todoDetails.html',data)
+
+def edit(request,id):
+    todo=Todo.objects.get(id=id)
+    data={
+        'todo':todo,
+    }
+    if request.method=="POST":
+        todo.title=request.POST['title']
+        todo.description=request.POST['desc']
+        todo.save()
+        return redirect('home')
+    return render(request, 'webpages/editTodo.html',data)

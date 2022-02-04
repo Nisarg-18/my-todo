@@ -8,7 +8,7 @@
             <h3 class="text-primary">{{ todo.title }}</h3>
           </div>
           <div class="col-lg-2 col-md-4">
-            <a href="" class="btn btn-outline-dark"> Edit </a>
+            <a href="{% url 'edit' todo.id %}" class="btn btn-outline-dark"> Edit </a>
             <a href="{% url 'delete' todo.id%}" class="btn btn-danger"> Delete </a>
           </div>
         </div>
