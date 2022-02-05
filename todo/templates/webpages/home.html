@@ -27,7 +27,8 @@
               <div class="card">
               <div class="card-body">
                 <h5 class="card-title">{{ t.title }}</h5>
-                <p class="card-text">
+                <p><em>{{ t.created_date }}</em></p>
+                <p class="card-text  mb-3">
                   {{ t.description | safe }}
                 </p>
                 <a href="{% url 'edit' t.id %}" class="btn btn-outline-dark">Edit</a>
