@@ -15,7 +15,8 @@ def create(request):
     if request.method=="POST":
         title=request.POST['title']
         desc=request.POST['desc']
-        todo=Todo(title=title,description=desc)
+        priority=request.POST['priority']
+        todo=Todo(title=title,description=desc,priority=priority)
         todo.save()
         return redirect('home')
     return render(request, 'webpages/createTodo.html')
