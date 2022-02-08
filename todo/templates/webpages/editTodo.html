@@ -37,6 +37,26 @@
             <label for="floatingTextarea2">Description (if any)</label>
           </div>
 
+          <div>
+            <select name="priority" class="form-select mb-5">
+              {% if todo.priority == "Urgent" %}
+              <option value="Urgent" selected>Urgent</option>
+              <option value="EOD">EOD</option>
+              <option value="No Deadline">No Deadline</option>
+              {% elif todo.priority == "EOD" %}
+             
+              <option value="Urgent" >Urgent</option>
+              <option value="EOD" selected>EOD</option>
+              <option value="No Deadline">No Deadline</option>
+              {% else %}
+              <option value="Urgent" >Urgent</option>
+              <option value="EOD" >EOD</option>
+              <option value="No Deadline" selected>No Deadline</option>
+              {% endif %}
+
+            </select>
+          </div>
+
           <button type="submit" class="btn btn-dark addbtn rounded">Update</button>
         </form>
       </div>

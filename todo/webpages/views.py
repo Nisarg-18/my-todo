@@ -41,6 +41,7 @@ def edit(request,id):
     if request.method=="POST":
         todo.title=request.POST['title']
         todo.description=request.POST['desc']
+        todo.priority=request.POST['priority']
         todo.save()
         return redirect('home')
     return render(request, 'webpages/editTodo.html',data)
