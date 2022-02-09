@@ -22,6 +22,43 @@
       <div class="container">
         <div class="row g-4">
           {% for t in todo %}
+          {% if t.priority == 'Urgent' %}
+          <div class="col-lg-3 col-md-6">
+            <a href="{% url 'read' t.id %}" class="text-decoration-none text-light">
+              <div class="card bg-danger">
+              <div class="card-body">
+                <p>{{ t.priority }}</p>
+                <h5 class="card-title">{{ t.title }}</h5>
+                <p><em>{{ t.created_date }}</em></p>
+                <p class="card-text  mb-3">
+                  {{ t.description | truncatechars:20 }}
+                </p>
+                <a href="{% url 'edit' t.id %}" class="btn btn-light">Edit</a>
+                <a href="{% url 'delete' t.id %}" class="btn btn-primary">Delete</a>
+              </div>
+            </div>
+          </a>
+
+          </div>
+          {% elif t.priority == 'EOD' %}
+          <div class="col-lg-3 col-md-6">
+            <a href="{% url 'read' t.id %}" class="text-decoration-none text-dark">
+              <div class="card bg-warning">
+              <div class="card-body">
+                <p>{{ t.priority }}</p>
+                <h5 class="card-title">{{ t.title }}</h5>
+                <p><em>{{ t.created_date }}</em></p>
+                <p class="card-text  mb-3">
+                  {{ t.description | safe }}
+                </p>
+                <a href="{% url 'edit' t.id %}" class="btn btn-light">Edit</a>
+                <a href="{% url 'delete' t.id %}" class="btn btn-info">Delete</a>
+              </div>
+            </div>
+          </a>
+
+          </div>
+          {% else %}
           <div class="col-lg-3 col-md-6">
             <a href="{% url 'read' t.id %}" class="text-decoration-none text-dark">
               <div class="card">
@@ -39,6 +76,7 @@
           </a>
 
           </div>
+          {% endif %}
           {% endfor %}
         </div>
       </div>
